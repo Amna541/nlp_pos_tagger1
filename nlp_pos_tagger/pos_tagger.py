@@ -54,6 +54,8 @@ def pos_tag_text(text):
     for token, tag in tagged_tokens:
         if token.isnumeric():
             full_tag = 'Numeral'
+        elif tag == 'PRP':
+            full_tag = 'Personal pronoun'
         elif token.isalpha() and token.istitle():
             full_tag = 'Proper noun, singular'
         else:
@@ -62,4 +64,3 @@ def pos_tag_text(text):
         tagged_tokens_with_full_pos.append((token, tag, full_tag))
 
     return tagged_tokens_with_full_pos
-
